@@ -1,0 +1,41 @@
+.item1{
+background-color: blueviolet;
+width: 30%;
+height: 100px;
+}
+.item2{
+background-color: chartreuse;
+width: 30%;
+height: 100px;
+}
+.item3{
+background-color: coral;
+width: 30%;
+height: 100px;
+}
+.container{
+    display: flex;
+}
+
+@media screen and (max-width: 600px){
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+    .item1{
+        background-color: blueviolet;
+        width: 90%;
+        height: 100px;
+        }
+        .item2{
+        background-color: chartreuse;
+        width: 90%;
+        height: 100px;
+        }
+        .item3{
+        background-color: coral;
+        width: 90%;
+        height: 100px;
+        }
+    
+}

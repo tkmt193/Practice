@@ -1,0 +1,124 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.user-container{
+margin: 50px auto;
+    width: 60%;
+    height: 220px;
+    text-align: center;
+    border: solid white;
+    flex-direction: column;
+}
+
+.follow{
+    margin-top: 10px;
+}
+
+.follow_btn {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #fff1da;
+    background: #665e51 ;
+    transition: .4s;
+    border-radius: 5px 5px 5px 5px;
+    border-style: none;
+  }
+  
+  .follow_btn:hover {
+    background: #b59a4d;
+    border-style: none;
+  }
+
+  .unfollow_btn {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #fff1da;
+    background: #b59a4d ;
+    transition: .4s;
+    border-radius: 5px 5px 5px 5px;
+    border-style: none;
+  }
+  
+  .unfollow_btn:hover {
+    background: #665e51;
+    border-style: none;
+  }
+
+.current-user{
+    padding:20px;
+    display: flex;
+    white-space:nowrap;
+    overflow-x: auto;
+    justify-content: inherit;
+    }
+ 
+    // flex-wrap: nowrap;
+.fl-cnt{
+    display: flex;
+    justify-content: center;
+}
+
+.fl{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.profile{
+    margin: 10px;
+}
+
+.line{
+    margin-top: 100px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.catego{
+    width: 100%;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 10px;
+
+}
+
+.name{
+    width: 100%;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
+}
+
+.oneuser{
+    margin: 20px;
+    width: 240px;
+    height: 300px;
+    float:left;
+    background:#7a6d58;
+}
+
+.prf{
+
+    white-space: pre-wrap;
+    color: whitesmoke;
+    text-align: center;
+    margin: 35px;
+    }
+
+.oneuser h3{
+    margin: 30px;
+    color: whitesmoke;
+}
+
+
+
+    
+   

@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag 'new', :media => "all" %>
+
+<div class="post-container">
+    <p class="new-gohan">ごはんを編集</p>
+    <%= form_for(@gohan, :url => { controller:'gohans', action:'update'})do |f| %>
+    <div class="up-container">
+
+    <p class="gohan-title">
+<%= f.label :'ごはんの名前' %><br>
+    <%= f.text_field :title, :class=> 'title_field' %>
+    </p>
+
+    <p class="gohan-image">
+    <div class="field">
+      <%= f.label :'ごはんの写真' %><br>
+      <%= f.file_field :image, :class=> 'image_field' %>
+    </div>
+    </p>
+
+    </div>
+    <div class="down-container">
+    <p class="gohan-food">
+    <%= f.label :'ごはんの材料' %><br>
+    <%= f.text_area :food, :class => 'food_area'%>
+    </p>
+    <p class="gohan-recipe">
+    <%= f.label :'ごはんの作り方' %><br>
+    <%= f.text_area :recipe, :class => 'recipe_area' %>
+    </p>
+    </div>
+    <p class="submit">
+    <%= f.submit "送信", :class => 'submit_btn' %>
+    </p>
+    <% end %>
+</div>

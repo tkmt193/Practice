@@ -1,0 +1,2 @@
+module GohansHelper
+end

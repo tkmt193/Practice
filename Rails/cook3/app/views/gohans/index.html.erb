@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag 'index', :media => "all" %>
+
+<div class="first_brock">
+<h1>今日は何を食べよう？</h1>
+<div class="top_search">
+<%= form_tag({controller:"gohans",action:"index"}, method: :get) do %>
+  <%= text_field_tag :search, '', :class => 'sub_area'%>
+  <%= submit_tag 'さがす' , :class=>"sub_btn" %>
+<% end %>
+</div>
+</div>
+
+<div id="wrapper">
+<section class="gridWrapper">
+  <% @gohans.each do |t| %>
+    <article class="grid">
+   <h3><%= t.title %></h3>
+<p class="img"><%= image_tag t.image_url, :size => '240x200' %></p>
+      <p class="readmore">
+      <ul>
+      <li class="like_cun">♡<%= t.liked_users.count %></li>
+      <li><%= button_to "詳細へ", gohan_path(t.id), method: :get, class:"submit_btn" %></li>
+      </ul>
+      </p>
+    </article>
+  <% end %>
+  </section>
+  </div>

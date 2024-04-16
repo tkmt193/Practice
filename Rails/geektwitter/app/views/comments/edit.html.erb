@@ -1,0 +1,12 @@
+
+
+  
+<%= form_for @comment do |f| %>
+  <div class="field">
+
+    <%= f.label :content %>
+    <%= f.text_field :content, :size => 140 %>
+  </div>
+  <%= f.submit "編集する" %>
+<% end %>
+<%= link_to "Tweet一覧に戻る", tweet_path(@comment.tweet.id) %>

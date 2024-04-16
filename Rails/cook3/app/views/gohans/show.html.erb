@@ -1,0 +1,79 @@
+<%= stylesheet_link_tag 'show', :media => "all" %>
+
+
+<div class="main-container">
+<div class="title-container">
+<p class="title">
+<h1><%= @gohan.title %></h1>
+</p>
+
+<div class="like">
+<ul>
+<% if @gohan.user.id == current_user.id %>
+      <li><%= button_to "編集する", edit_gohan_path(@gohan.id), method: :get,class:"submit_btn" %></li>
+      <li><%= button_to "削除する", gohan_path(@gohan.id), method: :delete ,class:"submit_btn" %></li>
+      <% else%>
+      <% end %>
+<li>
+<% if current_user.already_liked?(@gohan) %>
+<%= button_to '♥', gohan_like_path(@gohan), method: :delete ,class:"dislike_btn" %>
+<% else %>
+<%= button_to '♡', gohan_likes_path(@gohan), class:"like_btn" %>
+<% end %>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div class="gohan-container">
+
+  <div class="left-container">
+  <p class="image"><%= image_tag @gohan.image_url , :size => '100%x552'%></p>
+  <div class="user-info">
+  
+<h3><%= @gohan.user.name %>さんのごはん</h3>
+<%= button_to "このユーザーの詳細へ", user_path(@gohan.user.id), method: :get, class:"submit_btn" %>
+<p><h4>プロフィール </h4> 
+<p class="plf"><%= @gohan.user.profile %></p>
+ 
+  </div>
+  </div>
+
+  <div class="right-container">
+  <p class="food"><%= @gohan.food %></p>
+  <p class="recipe"><%= @gohan.recipe %></p>
+  </div>     
+</div>
+
+
+
+<div class="comment-wrapper">
+<div class="comments-container">
+<h3>コメント一覧</h3>
+  <% @comments.each do |t| %>
+    <div class="comment">
+      <div class="main-box">
+        <div class="left-cnt"><%= t.comment %></div> 
+      </div>
+        <p class="username">  <%= t.user.name unless t.user.blank? %></p>
+    </div>
+  <% end %>
+</div>
+
+<div class="comment-area">
+<% if user_signed_in? %>
+    <%= form_with(model: [@gohan, @comment], local: true) do |f| %>
+
+      <%= f.text_area :comment, :class=> 'sub_area' %>
+      <%= button_tag :type => "submit", :class =>"submit_btn" do %>
+        <i class="fa fa-share"></i> コメントする
+      <% end %>
+    <% end %>
+  <% end %>
+  </div>
+  </div>
+
+</div>
+
+<%= link_to "TOPに戻る", gohans_path %>

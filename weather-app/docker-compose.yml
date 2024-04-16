@@ -1,0 +1,17 @@
+version: '3'
+services:
+  https-portal3000:
+    image: steveltn/https-portal:1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3443:443'
+    volumes:
+      - .:/app
+    environment:
+      STAGE: local
+      FLASK_ENV: development
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    

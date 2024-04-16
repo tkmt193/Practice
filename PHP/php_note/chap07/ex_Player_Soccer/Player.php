@@ -1,0 +1,15 @@
+<?php
+class Player{
+    public string $name;
+    function __construct($name = '名無し'){
+        $this->name = $name;
+    }
+
+    public function __toString(){
+        return $this->name;
+    }
+    public function who(){
+        echo "{$this->name}です。","\n";
+    }
+}
+// ?>

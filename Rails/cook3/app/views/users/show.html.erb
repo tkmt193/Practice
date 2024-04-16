@@ -1,0 +1,79 @@
+<%= stylesheet_link_tag 'users', :media => "all" %>
+
+
+<div class="user-container">
+<% unless @user == current_user %>
+<p class="name"><%= @user.name %>さんのページ</p>
+<% else %>
+<p class="name">マイページ</p>
+<%= button_to "編集する", edit_user_registration_path(@user.id), method: :get,class:"submit_btn" %>
+<% end %>
+<% unless @user == current_user %>
+  <% if current_user.following?(@user) %>
+    <%= button_to 'フォロー外す', unfollow_path(@user.id), method: :POST, class:"unfollow_btn" %>
+  <% else %>
+    <%= button_to 'フォローする', follow_path(@user.id), method: :POST, class:"follow_btn" %>
+  <% end %>
+<% end %>
+<p class="profile"><h3><%= @user.profile %></h3></p>
+
+<div class="fl-cnt">
+<p class="fl"><%= "フォロー数: #{@user.follower.count}" %></p>
+<p class="fl"><%= "フォロワー数: #{@user.followed.count}" %></p>
+</div>
+
+
+
+
+
+</div>
+<div class = "line">
+<a class="catego"><%= @user.name %>さんのごはん<a>
+  <section class="current-user">
+  <% @user.gohans.each do |t| %>
+    <article class="grid">
+   <h3><%= t.title %></h3>
+<p class="img"><%= image_tag t.image_url, :size => '240x200' %></p>
+      <p class="readmore">
+      <ul>
+      <li class="like_cun">♡<%= t.liked_users.count %></li>
+      <li><%= button_to "詳細へ", gohan_path(t.id), method: :get, class:"submit_btn" %></li>
+      </ul>
+      </p>
+    </article>
+  <% end %>
+  </section>
+  </div>
+
+  <div class = "line">
+<a class="catego">おきにいりのごはん<a>
+  <section class="current-user">
+  <% @user.liked_gohans.each do |t| %>
+    <article class="grid">
+   <h3><%= t.title %></h3>
+<p class="img"><%= image_tag t.image_url, :size => '240x200' %></p>
+      <p class="readmore">
+      <ul>
+      <li class="like_cun">♡<%= t.liked_users.count %></li>
+      <li><%= button_to "詳細へ", gohan_path(t.id), method: :get, class:"submit_btn" %></li>
+      </ul>
+      </p>
+    </article>
+  <% end %>
+  </section>
+  </div>
+
+
+  <div class = "line">
+  <a class="catego">フォロー一覧<a>
+  <div class="current-user">
+  <% @user.following_user.where.not(id: current_user.id).each do |t| %>
+    <article class="oneuser">
+  <h3><%= t.name %></h3>
+  <%= button_to "このユーザーの詳細へ", user_path(t.id), method: :get, class:"submit_btn" %>
+  <p class="prf"><%= t.profile %></p>
+  </article>
+  <% end %>
+  </section>
+    </div>
+ 

@@ -1,0 +1,59 @@
+<%= stylesheet_link_tag 'show', :media => "all" %>
+
+<h1>GeekTwitter</h1>
+<h3>Tweet詳細</h3>
+<div class=" <%= @tweet.colerlavel %>">
+      <%= @tweet.title %>
+      <%= @tweet.body %>
+      <%= @tweet.colerlavel %>
+      <%= @tweet.created_at %>
+ 
+      <%= link_to "編集する", edit_tweet_path(@tweet.id) %>
+      <%= button_to "削除する", tweet_path(@tweet.id), method: :delete %>
+   
+</div>
+<%= form_with model: @tweet do |f| %>
+    <%= f.select :colerlavel, [["あか", "red"], ["き", "yellow"], ["みず", "blue"]], include_blank: "選択して下さい" %>
+    <%= f.submit '送信'%>
+ <% end %>
+
+ <div class="comment-wrapper">
+  <p>コメント一覧</p>
+  <% @comments.each do |c| %>
+    <div>
+    <%= c.content %>
+
+    <form class="edit_tweet" id="edit_tweet_3" action="/tweets/<%= @tweet.id %>/comments/<%= c.id %>" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="Wm/CmCt3omkGpeNaaODdBuIn6ALAfPb/mTqYD+81JPRilOpKk/yF1xhd+r5MWlBaoAndFQgqcXYMXQwFPmx0yQ==">
+    <div class="field">
+      <input size="140" type="text" value=" <%= c.content %>" name="comment[content]" id="tweet_body">
+    </div>
+    <input type="submit" name="commit" value="編集する" data-disable-with="Tweetする">
+    </form>
+
+
+      <%= link_to "削除", tweet_comment_path(@tweet, c.id), method: :delete %>
+      <%= link_to "編集", edit_tweet_comment_path(@tweet, c.id), method: :get%>
+    </div>
+      <br>
+  <% end %>
+
+  <%= form_for @tweet do |f| %>
+    <div class="field">
+  
+      <%= f.label :body %>
+      <%= f.text_field :body, :size => 140 %>
+    </div>
+    <%= f.submit "Tweetする" %>
+  <% end %>
+  
+    <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
+      <%= f.text_area :content %>
+      <%= button_tag type: "submit" do %>
+        <i class="far fa-comments"></i> コメントする
+    <% end %>
+  <% end %>
+</div>
+
+<iframe src="<%= @tweet.map %>" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+<%= link_to "Tweet一覧に戻る", tweets_path %>

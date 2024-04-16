@@ -1,0 +1,14 @@
+<h1>GeekTwitter</h1>
+<h3>Tweet詳細</h3>
+<div class="tweet">
+      <%= @post.suji %>
+ 
+      <%= @post.created_at %>
+      <%= link_to "詳細へ", post_path(@post.id) %>
+      <%= link_to "編集する", edit_post_path(@post.id) %>
+      <%= button_to "削除する", post_path(@post.id), method: :delete %>
+
+</div>
+
+
+<%= link_to "Tweet一覧に戻る", posts_path %>

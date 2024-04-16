@@ -1,0 +1,72 @@
+  
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.6/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> 
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>  
+<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.6/bootstrap-editable/js/bootstrap-editable.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    //toggle `popup` / `inline` mode
+    $.fn.editable.defaults.mode = 'popup';     
+
+    //make username editable
+    $('#username').editable();
+
+    //make status editable
+    $('#status').editable({
+        type: 'select',
+        title: 'Select status',
+        placement: 'right',
+        value: 2,
+        source: [
+            {value: 1, text: 'status 1'},
+            {value: 2, text: 'status 2'},
+            {value: 3, text: 'status 3'}
+        ]
+        /*
+        //uncomment these lines to send data on server
+        ,pk: 1
+        ,url: '/post'
+        */
+    });
+});
+</script>
+
+<div>
+
+
+<div>
+<span>Status:</span>
+<a href="#" id="status"></a>
+</div>
+
+<h1>GeekTwitter</h1>
+<h3>Post一覧</h3>
+<%= link_to "新規投稿へ", new_post_path %>
+<div class="tweets-container">
+  <% @posts.each do |t| %>
+    <div class="tweet">
+      <%= t.suji %>
+      <span>Username:</span>
+<a href="/posts/<%= t.id %>" id="username" data-type="text" data-placement="right" data-title="Enter username"> <%= t.suji %></a>
+</div>
+
+
+      <%= t.created_at %>
+      <%= link_to "詳細へ", post_path(t.id) %>
+      <%= link_to "編集する", edit_post_path(t.id) %>
+      <%= button_to "削除する", post_path(t.id), method: :delete %>
+
+    </div>
+  <% end %>
+</div>
+
+<%= form_for @post do |f| %>
+    <div class="field">
+      <%= f.label :suji %>
+      <%= f.text_field :suji, :size => 140 %>
+    </div>
+    <%= f.submit "Tweetする" %>
+  <% end %>

@@ -1,0 +1,140 @@
+<!-- html宣言文 -->
+<!DOCTYPE html>
+<!-- htmlタグのlang属性を日本語に設定 -->
+<html lang="ja">
+<!-- headタグの開始 -->
+<head>
+<!-- 文字コードをUTF-8に設定 -->
+<meta charset="UTF-8">
+<!-- ページのタイトル -->
+<title>会社概要</title>
+<!-- CSSファイルの読み込み -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<!-- headタグの終了 -->
+<!-- bodyタグの開始 -->
+<body>
+<!-- ヘッダー -->
+<header>
+<!-- ヘッダーのロゴ -->
+<div class="header-logo">
+<a href="index.html"><img src="images/logo.png" alt="株式会社○○"></a>
+</div>
+<!-- ナビゲーションメニュー -->
+<nav id="top-nav">
+<ul>
+<li><a href="index.html">ホーム</a></li>
+<li><a href="about.html">会社概要</a></li>
+<li><a href="service.html">事業内容</a></li>
+<li><a href="recruit.html">採用情報</a></li>
+<li><a href="contact.html">お問い合わせ</a></li>
+</ul>
+</nav>
+</header>
+<!-- メインビジュアル -->
+<div class="main-visual">
+<img src="images/office.jpg" alt="オフィスの様子">
+<h2>会社概要</h2>
+</div>
+<!-- メインコンテンツ -->
+<div class="container">
+<section class="company">
+<h3>会社情報</h3>
+<table>
+<tr>
+<th>会社名</th>
+<td>株式会社○○</td>
+</tr>
+<tr>
+<th>設立</th>
+<td>2013年○月○日</td>
+</tr>
+<tr>
+<th>資本金</th>
+<td>○○○○○○○○○円</td>
+</tr>
+<tr>
+<th>代表者</th>
+<td>○○ ○○</td>
+</tr>
+<tr>
+<th>従業員数</th>
+<td>○○名（正社員○○名、アルバイト○○名）</td>
+</tr>
+<tr>
+<th>所在地</th>
+<td>〒○○○-○○○○<br>
+東京都�
+</body>
+</html>
+<style>
+    /* cssを記述 */
+    /* リセットCSS */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    /* ヘッダー */
+    header {
+      height: 60px;
+      background: #333;
+      color: #fff;
+    }
+    /* ヘッダーのロゴ */
+    .header-logo {
+      float: left;
+      padding: 10px 20px;
+    }
+    /* ヘッダーのロゴの画像 */
+    .header-logo img {
+      width: 200px;
+    }
+    /* ヘッダーのナビゲーションメニュー */
+    #top-nav {
+      float: right;
+      margin-top: 15px;
+    }
+    /* ヘッダーのナビゲーションメニューのリスト */
+    #top-nav ul li {
+      display: inline-block;
+    }
+    /* ヘッダーのナビゲーションメニューのリンク */
+    #top-nav ul li a {
+      display: block;
+      padding: 10px 20px;
+      color: #fff;
+      text-decoration: none;
+    }
+    /* メインビジュアル */
+    .main-visual {
+      padding: 60px 0;
+      text-align: center;
+      background: url(../images/bg.jpg) no-repeat;
+      background-size: cover;
+    }
+    /* メインビジュアルのタイトル */
+    .main-visual h2 {
+      margin-bottom: 20px;
+      font-size: 30px;
+      color: #fff;
+    }
+    /* メインコンテンツ */
+    .container {
+      width: 800px;
+      margin: 0 auto;
+    }
+    /* 会社情報 */
+    .company {
+      margin-bottom: 60px;
+    }
+    /* 会社情報のテーブル */
+    .company table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #333;
+    }
+    /* 会社情報のテーブルのセル */
+    .company table th,
+    .company table td {
+      padding: 10px;
+      border: 1

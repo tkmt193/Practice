@@ -1,0 +1,102 @@
+<!-- html宣言文 -->
+<!DOCTYPE html>
+<!-- html要素 -->
+<html lang="ja">
+<!-- head要素 -->
+<head>
+    <!-- 文字コードをUTF-8に指定 -->
+    <meta charset="UTF-8">
+    <!-- キャッシュを無効にする -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <!-- ビューポートを設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title要素 -->
+    <title>タイトル</title>
+    <!-- リンク要素 -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- スクリプト要素 -->
+    <script src="js/main.js"></script>
+</head>
+<!-- body要素 -->
+<body>
+    <!-- ロゴ・ナビゲーション・ボタン・ハンバーガー・メニュー -->
+    <header>
+        <!-- ロゴ画像 -->
+        <div class="logo">
+            <img src="images/logo.png" alt="ロゴ" width="50px" height="50px" type="png">
+        </div>
+
+        <!-- ナビゲーション -->
+        <nav>
+            <ul>
+                <li><a href="#">ホーム</a></li>
+                <li><a href="#">サービス</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+                <li><a href="#">会社概要</a></li>
+            </ul>
+        </nav>
+        <!-- ボタン -->
+        <div class="menu">
+            <a href="#">ボタン</a>
+        </div>
+        <!-- ハンバーガーメニュー -->
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <!-- メインビジュアル -->
+    <div class="main-visual">
+        <div class="main-visual-inner">
+            <h2>メインビジュアル</h2>
+            <p>メインビジュアルのテキスト</p>
+        </div>
+    </div>
+    <!-- サービス -->
+    
+    <div class="service">
+        <h2>サービス</h2>
+        <p>サービスの説明</p>
+        <div class="service-inner">
+            <div class="service-item">
+                <h3>サービス名</h3>
+                <p>サービスの説明</p>
+            </div>
+            <div class="service-item">
+                <h3>サービス名</h3>
+                <p>サービスの説明</p>
+            </div>
+            <div class="service-item">
+                <h3>サービス名</h3>
+                <p>サービスの説明</p>
+            </div>
+        </div>
+    </div>
+    <!-- お問い合わせ -->
+    <div class="contact">
+        <h2>お問い合わせ</h2>
+        <p>お問い合わせの説明</p>
+        <div class="contact-inner">
+            <form action="#">
+                <div class="contact-item">
+                    <label for="name">お名前</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="contact-item">
+                    <label for="email">メールアドレス</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="contact-item">
+                    <label for="message">お問い合わせ内容</label>
+                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                </div>
+                <div class="contact-item">
+                    <input type="submit" value="送信">
+                </div>
+            </form>
+</body>
+</html>
+
+
